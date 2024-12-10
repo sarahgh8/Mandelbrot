@@ -1,5 +1,5 @@
 # Mandelbrot
-### Explore the wonderful world of fractals through this program! This project visualizes the Mandelbrot set, a fascinating complex mathematical structure in the complex plane. With interactive features like zooming and arrow shifting, users can delve into the beauty of the fractal, uncovering endless patterns and details. Built using MiniLibX, the program combines mathematical computation with graphical rendering to bring the Mandelbrot set to life.
+### Explore the wonderful world of fractals through this program! This program visualizes the Mandelbrot set, a fascinating complex mathematical structure in the complex plane. With interactive features like zooming and arrow shifting, users can delve into the beauty of the fractal, uncovering endless patterns and details. Built using MiniLibX, the program combines mathematical computation with graphical rendering to bring the Mandelbrot set to life.
 ---
 
 ## Features
