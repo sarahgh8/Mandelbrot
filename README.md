@@ -20,6 +20,7 @@
 
 ### Steps
 1. Clone the repository
-2. Run `make` in the root directory
-3. Execute the program with `./fractol mandelbrot`
-4. Enjoy!
+2. Run `./configure` in the minilibx-linux directory
+3. Go back to the main directory and run `make` in the root directory
+4. Execute the program with `./fractol mandelbrot`
+5. Enjoy!
