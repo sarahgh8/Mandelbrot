@@ -18,19 +18,19 @@ int key_events(int keycode, t_base *base)
     }
     else if (keycode == 65362) // up
     {
-        base->y -= SHIFTING_SCALES;
+        base->y -= SHIFTING_SCALES / base->scale;
     }
     else if (keycode == 65364) // down
     {
-        base->y += SHIFTING_SCALES;
+        base->y += SHIFTING_SCALES / base->scale;
     }
     else if (keycode == 65363) // right 
     {
-        base->x -= SHIFTING_SCALES;
+        base->x -= SHIFTING_SCALES / base->scale;
     }
     else if (keycode == 65361) //left
     {
-        base->x += SHIFTING_SCALES;
+        base->x += SHIFTING_SCALES / base->scale;
     }
     return (0);
 }

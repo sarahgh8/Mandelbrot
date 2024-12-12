@@ -11,7 +11,7 @@
 #define HEIGHT 500
 # define PLUS 65451
 # define MINUS 65453 
-# define SHIFTING_SCALES 0.01
+# define SHIFTING_SCALES 20
 
 
 typedef struct s_imgdata
