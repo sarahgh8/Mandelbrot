@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CCACHE_DIR: ${{ github.workspace }}/.ccache
+
+jobs:
+  lint:
+    name: Lint (${{ matrix.compiler }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler:
+          - gcc
+          - clang
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential clang ccache libx11-dev libxext-dev libbsd-dev zlib1g-dev
+
+      - name: Restore compiler cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: lint-${{ runner.os }}-${{ matrix.compiler }}-${{ hashFiles('**/*.c', '**/*.h', 'Makefile', '.gitmodules') }}
+          restore-keys: |
+            lint-${{ runner.os }}-${{ matrix.compiler }}-
+
+      - name: Build MiniLibX
+        run: make -C minilibx-linux
+
+      - name: Lint sources
+        run: |
+          ccache --zero-stats
+          for source in main.c Mandelbrot.c utils.c str_manip.c; do
+            ccache ${{ matrix.compiler }} -Wall -Wextra -Werror -fsyntax-only "$source"
+          done
+          ccache --show-stats
+
+  test:
+    name: Test (${{ matrix.os }}, ${{ matrix.compiler }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-22.04
+          - ubuntu-24.04
+        compiler:
+          - gcc
+          - clang
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential clang ccache libx11-dev libxext-dev libbsd-dev zlib1g-dev
+
+      - name: Restore compiler cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.CCACHE_DIR }}
+          key: test-${{ matrix.os }}-${{ matrix.compiler }}-${{ hashFiles('**/*.c', '**/*.h', 'Makefile', '.gitmodules') }}
+          restore-keys: |
+            test-${{ matrix.os }}-${{ matrix.compiler }}-
+
+      - name: Build MiniLibX
+        run: make -C minilibx-linux
+
+      - name: Build project
+        run: |
+          ccache --zero-stats
+          make CC="ccache ${{ matrix.compiler }}"
+          ccache --show-stats
+
+      - name: Smoke test usage output
+        run: |
+          ./fractol > usage.txt
+          grep -q "Invalid argument" usage.txt
+          grep -q "Usage: ./fractol mandelbrot" usage.txt

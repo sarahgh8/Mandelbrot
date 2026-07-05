@@ -1,7 +1,7 @@
 .RECIPEPREFIX = ~
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AFLAGS = -Lminilibx -lmlx -lX11 -lXext -lm
+AFLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lbsd -lz
 NAME = fractol
 SRC = main.c Mandelbrot.c utils.c str_manip.c
 OBJ_DIR = obj
