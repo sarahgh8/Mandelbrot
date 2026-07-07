@@ -1,0 +1,44 @@
+site_name: Mandelbrot
+site_description: Documentation for the Mandelbrot fractal explorer built with MiniLibX and C.
+site_author: Sarah G.
+site_url: https://sarahgh8.github.io/Mandelbrot/
+
+repo_url: https://github.com/sarahgh8/Mandelbrot
+repo_name: sarahgh8/Mandelbrot
+copyright: © 2026 Sarah G. and contributors
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+    - scheme: slate
+      primary: indigo
+      accent: amber
+
+nav:
+  - Home: index.md
+  - Tutorial:
+      - First steps: tutorials/first-steps.md
+  - How-to guides:
+      - Configure the project: how-to/configure-project.md
+  - Reference:
+      - CLI reference: reference/cli.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
