@@ -1,2 +1,10 @@
 .venv/
 site/
+.github/styles/*
+!.github/styles/config/
+.github/styles/config/*
+!.github/styles/config/vocabularies/
+.github/styles/config/vocabularies/*
+!.github/styles/config/vocabularies/Mandelbrot/
+!.github/styles/config/vocabularies/Mandelbrot/accept.txt
+!.github/styles/config/vocabularies/Mandelbrot/reject.txt

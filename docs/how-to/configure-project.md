@@ -31,11 +31,11 @@ make
 
 ### The program fails to start
 
-If the window does not open, confirm that the dependencies above are installed and that the MiniLibX build completed successfully.
+If the window doesn't open, confirm that the dependencies above are installed and that the MiniLibX build completed successfully.
 
 ### `mlx_init` or X11-related errors
 
-These errors usually mean that the X11 development packages are missing or that the display environment is not available. On a local machine, this is typically resolved by installing the packages listed above.
+These errors usually mean that the X11 development packages are missing or that the display environment isn't available. On a local machine, this is typically resolved by installing the packages listed above.
 
 ### Build errors from MiniLibX
 

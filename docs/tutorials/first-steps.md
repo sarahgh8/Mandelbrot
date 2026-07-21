@@ -47,4 +47,4 @@ Once the window is open, you can:
 - Use the arrow keys to shift the view
 - Close the window to exit the program
 
-If the window does not appear, the most common cause is a missing X11 dependency or an issue while building MiniLibX. The troubleshooting guide covers the usual fixes.
+If the window doesn't appear, the most common cause is a missing X11 dependency or an issue while building MiniLibX. The troubleshooting guide covers the usual fixes.

@@ -1,6 +1,6 @@
-# CLI reference
+# Command-line reference
 
-The program currently exposes a very small command-line interface.
+The program currently exposes a small command-line interface.
 
 ## Usage
 

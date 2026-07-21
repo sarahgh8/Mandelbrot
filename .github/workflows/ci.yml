@@ -15,6 +15,22 @@ env:
   CCACHE_DIR: ${{ github.workspace }}/.ccache
 
 jobs:
+  docs-style:
+    name: Docs style
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lint documentation prose
+        uses: vale-cli/vale-action@v2
+        with:
+          version: 3.15.1
+          files: '["README.md", "docs"]'
+          fail_on_error: true
+          filter_mode: nofilter
+
   lint:
     name: Lint (${{ matrix.compiler }})
     runs-on: ubuntu-24.04

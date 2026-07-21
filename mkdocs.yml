@@ -31,7 +31,7 @@ nav:
   - How-to guides:
       - Configure the project: how-to/configure-project.md
   - Reference:
-      - CLI reference: reference/cli.md
+      - Command-line reference: reference/cli.md
 
 plugins:
   - search
