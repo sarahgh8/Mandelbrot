@@ -21,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Lint documentation prose
-        uses: vale-cli/vale-action@v2
+        uses: vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # v2.1.2
         with:
           version: 3.15.1
           files: '["README.md", "docs"]'
@@ -43,7 +43,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
 
@@ -53,7 +53,7 @@ jobs:
           sudo apt-get install -y build-essential clang ccache libx11-dev libxext-dev libbsd-dev zlib1g-dev
 
       - name: Restore compiler cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ${{ env.CCACHE_DIR }}
           key: lint-${{ runner.os }}-${{ matrix.compiler }}-${{ hashFiles('**/*.c', '**/*.h', 'Makefile', '.gitmodules') }}
@@ -86,7 +86,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
 
@@ -96,7 +96,7 @@ jobs:
           sudo apt-get install -y build-essential clang ccache libx11-dev libxext-dev libbsd-dev zlib1g-dev
 
       - name: Restore compiler cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ${{ env.CCACHE_DIR }}
           key: test-${{ matrix.os }}-${{ matrix.compiler }}-${{ hashFiles('**/*.c', '**/*.h', 'Makefile', '.gitmodules') }}
