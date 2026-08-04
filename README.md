@@ -40,3 +40,20 @@ The full documentation is available at:
 
 It includes a getting-started tutorial, setup and troubleshooting how-to guides, and reference documentation for the current CLI behavior.
 
+## Verifying the Release Artifact
+
+This project signs release artifacts using Sigstore Cosign.
+
+Download the release artifact and its Cosign bundle from the GitHub Release page:
+
+- `mandelbrot-v1.0.0.zip`
+- `mandelbrot-v1.0.0.zip.bundle`
+
+Then verify the artifact with:
+
+```bash
+cosign verify-blob mandelbrot-v1.0.0.zip \
+  --bundle mandelbrot-v1.0.0.zip.bundle \
+  --certificate-identity "sarahjgh05@gmail.com" \
+  --certificate-oidc-issuer "https://github.com/login/oauth"
+
