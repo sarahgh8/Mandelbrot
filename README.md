@@ -54,6 +54,6 @@ Then verify the artifact with:
 ```bash
 cosign verify-blob mandelbrot-v1.0.0.zip \
   --bundle mandelbrot-v1.0.0.zip.bundle \
-  --certificate-identity "sarahjgh05@gmail.com" \
+  --certificate-identity "161157953+sarahgh8@users.noreply.github.com" \
   --certificate-oidc-issuer "https://github.com/login/oauth"
 
